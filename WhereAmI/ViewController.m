@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
-@interface ViewController () <UITextFieldDelegate>
+@interface ViewController () <UITextFieldDelegate, MKMapViewDelegate>
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *whereAmIButton;
@@ -28,6 +28,9 @@
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:true];
 
     self.nameTextField.delegate = self;
+    self.mapView.delegate = self;
+
+    self.whereAmIButton.enabled = false;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,8 +57,32 @@
     return true;
 }
 
+#pragma MKMapViewDelegate
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    self.whereAmIButton.enabled = true;
+}
+
+#pragma mark - Target / Action
+
 - (IBAction)onButtonPress:(id)sender
 {
-    NSLog(@"the button was pressed");
+    CLLocation *currentLocation = self.mapView.userLocation.location;
+    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+
+        if (!error && placemarks.count) {
+            CLPlacemark *placemark = [placemarks firstObject];
+            NSString *city = placemark.addressDictionary[@"City"];
+            NSString *message = [NSString stringWithFormat:@"Hello %@, it looks like you're in %@! Hope you're having a great time!", self.nameTextField.text, city];
+
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"There You Are!" message:message preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"You Found Me!" style:UIAlertActionStyleDefault handler:nil];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:true completion:nil];
+        }
+    }];
+
 }
 @end
