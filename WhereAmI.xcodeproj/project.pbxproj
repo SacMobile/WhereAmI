@@ -14,6 +14,7 @@
 		0A339C491A93C8EA00EE5F71 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A339C481A93C8EA00EE5F71 /* Images.xcassets */; };
 		0A339C4C1A93C8EA00EE5F71 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A339C4A1A93C8EA00EE5F71 /* LaunchScreen.xib */; };
 		0A339C621A93C9A300EE5F71 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A339C611A93C9A300EE5F71 /* MapKit.framework */; };
+		0A339C661A93D44F00EE5F71 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A339C651A93D44F00EE5F71 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		0A339C481A93C8EA00EE5F71 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0A339C4B1A93C8EA00EE5F71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0A339C611A93C9A300EE5F71 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0A339C651A93D44F00EE5F71 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A339C661A93D44F00EE5F71 /* CoreLocation.framework in Frameworks */,
 				0A339C621A93C9A300EE5F71 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,6 +48,7 @@
 		0A339C2F1A93C8EA00EE5F71 = {
 			isa = PBXGroup;
 			children = (
+				0A339C651A93D44F00EE5F71 /* CoreLocation.framework */,
 				0A339C611A93C9A300EE5F71 /* MapKit.framework */,
 				0A339C3A1A93C8EA00EE5F71 /* WhereAmI */,
 				0A339C391A93C8EA00EE5F71 /* Products */,

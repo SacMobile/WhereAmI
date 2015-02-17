@@ -7,16 +7,24 @@
 //
 
 #import "ViewController.h"
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 @interface ViewController ()
-
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIButton *whereAmIButton;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager requestWhenInUseAuthorization];
+    [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:true];
 }
 
 - (void)didReceiveMemoryWarning {
