@@ -1,5 +1,5 @@
 # WhereAmI
-Demo App for Session 2 of Women Who Code Sacramento
+I recently spoke at the Women Who Code Sacramento Meetup. This was the demo app that we worked on in the Beginning iOS Development series.
 
 This repo contains the master branch + 3 branches. 
 
