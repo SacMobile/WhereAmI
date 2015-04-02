@@ -1,6 +1,10 @@
 # WhereAmI
 I recently spoke at the Women Who Code Sacramento Meetup. This was the demo app that we worked on in the Beginning iOS Development series.
 
+
+![](https://github.com/djibouti33/WhereAmI/blob/master/screenshot.png)
+
+
 This repo contains the master branch + 3 branches. 
 
 ## Master
